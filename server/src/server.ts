@@ -13,7 +13,7 @@ class App {
     this.app.use(cors());
     this.io = new Server(this.http, {
       cors: {
-        origin: "http://localhost:3000/",
+        origin: "http://localhost:3000",
         methods: ["GET", "POST"],
       },
     });
@@ -28,8 +28,10 @@ class App {
 
   socketListens() {
     this.io.on("connection", (socket) => {
-      socket.on("message", (msg) => {
-        this.io.emit("message", msg);
+      console.log("USER CONNECTED ID", socket.id);
+
+      socket.on("send_message", (data) => {
+        socket.broadcast.emit("received_message", data);
       });
     });
   }
