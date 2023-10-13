@@ -1,0 +1,1 @@
+This repository is dedicated to my exploration of Socket.io, where I've implemented a basic real-time chat application using React and Express. It serves as a simple example and can be used as a reference for learning purposes.
